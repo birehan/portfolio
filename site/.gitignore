@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+.env*.local
+public/content
+public/resume.pdf
+*.log
+.DS_Store
