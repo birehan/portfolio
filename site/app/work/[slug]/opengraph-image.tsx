@@ -25,7 +25,7 @@ function ProjectOG(title: string, summary: string, stack: string[]) {
         style={{
           width: "100%",
           height: "100%",
-          background: "#0a0a0a",
+          background: "#000000",
           backgroundImage:
             "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(34,211,238,0.18) 0%, transparent 70%)",
           color: "#e5e5e5",

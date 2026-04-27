@@ -72,10 +72,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
+  themeColor: "#000000",
 };
 
 const personJsonLd = {
@@ -129,7 +126,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider
           attribute="data-theme"
           defaultTheme="dark"
-          enableSystem
+          enableSystem={false}
+          themes={["dark", "light"]}
           disableTransitionOnChange
         >
           <Nav />
