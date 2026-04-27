@@ -14,14 +14,14 @@ stack:
   - Hybrid Retrieval
 links:
   github: https://github.com/birehan/Optimized-Contract-QA-RAG-System-Enhancements
-  medium: https://medium.com/@birehananteneh4/contract-advisor-rag-towards-building-a-high-precision-legal-expert-llm-app-560c4776370c
-order: 5
+  medium: https://medium.com/@birehanzewdie4/contract-advisor-rag-towards-building-a-high-precision-legal-expert-llm-app-560c4776370c
+order: 1
 date: "Feb 2024"
 ---
 
 Medium link 
 
-https://medium.com/@birehananteneh4/contract-advisor-rag-towards-building-a-high-precision-legal-expert-llm-app-560c4776370c
+https://medium.com/@birehanzewdie4/contract-advisor-rag-towards-building-a-high-precision-legal-expert-llm-app-560c4776370c
 
 github link
 

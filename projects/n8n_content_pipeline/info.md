@@ -14,8 +14,7 @@ stack:
   - DataForSEO
   - Telegram Bot API
 links: {}
-featured: false
-order: 7
+order: 6
 date: 2025
 ---
 

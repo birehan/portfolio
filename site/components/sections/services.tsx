@@ -10,13 +10,13 @@ export function Services() {
     <section id="services" className="section bg-[var(--surface)] border-y border-[var(--border)]">
       <div className="container-x">
         <div className="mb-12 max-w-3xl">
-          <p className="eyebrow">04 — Work with me</p>
+          <p className="eyebrow">04: Work with me</p>
           <h2 className="h2">
             Three ways I deliver <span className="text-[var(--accent)]">for clients</span>
           </h2>
           <p className="lead mt-4">
             Engagements I take on most often. Each is scoped to ship something real
-            into production — not a prototype or a slide deck.
+            into production, not a prototype or a slide deck.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

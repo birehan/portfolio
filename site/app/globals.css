@@ -8,9 +8,9 @@
     --border: #e4e4e7;
     --text: #18181b;
     --muted: #52525b;
-    --accent: #0e7490;
-    --accent-hover: #155e75;
-    --ring: rgba(14, 116, 144, 0.4);
+    --accent: #0891b2;
+    --accent-hover: #0e7490;
+    --ring: rgba(8, 145, 178, 0.4);
   }
 
   :root[data-theme="dark"] {
@@ -104,6 +104,17 @@ a {
   }
 }
 
+/* Tighter gap when work follows the hero (homepage). */
+.section.section-after-hero {
+  padding-top: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  .section.section-after-hero {
+    padding-top: 2.75rem;
+  }
+}
+
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -117,6 +128,14 @@ a {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 1.05;
   letter-spacing: -0.035em;
+  font-weight: 700;
+}
+
+/* Home hero: same weight as .h1, slightly smaller scale so it doesn’t dominate. */
+.h1-hero {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
   font-weight: 700;
 }
 
@@ -254,4 +273,74 @@ a {
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  :root,
+  :root[data-theme="dark"] {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #ffffff;
+    --border: #cccccc;
+    --text: #000000;
+    --muted: #333333;
+    --accent: #0e7490;
+    --accent-hover: #0e7490;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  header,
+  footer,
+  nav,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  .resume-doc {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  a {
+    color: #0e7490 !important;
+    text-decoration: none !important;
+  }
+
+  .section,
+  .container-x {
+    padding: 0 !important;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+  }
+
+  li, p {
+    page-break-inside: avoid;
+  }
 }

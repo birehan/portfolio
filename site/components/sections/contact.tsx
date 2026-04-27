@@ -1,9 +1,18 @@
-import { Mail, Github, Linkedin, MapPin, Briefcase, Download } from "lucide-react";
+import {
+  Mail,
+  Github,
+  Linkedin,
+  Calendar,
+  BookOpen,
+  Download,
+  MessageCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { site } from "@/lib/site";
+import { site, getWhatsAppHref } from "@/lib/site";
 
 export function Contact() {
+  const hasBooking = Boolean(site.bookingUrl);
   return (
     <section
       id="contact"
@@ -11,12 +20,13 @@ export function Contact() {
     >
       <div className="container-x">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="eyebrow justify-center">08 — Contact</p>
+          <p className="eyebrow justify-center">07: Contact</p>
           <h2 className="h2">
-            Have a project? <span className="text-[var(--accent)]">Let&apos;s talk.</span>
+            Hiring or have a project? <span className="text-[var(--accent)]">Let&apos;s talk.</span>
           </h2>
           <p className="lead mx-auto mt-4 mb-8">
-            The fastest way to reach me is email. I reply within a business day.
+            Email or WhatsApp both work. I aim to reply within a business day on email;
+            WhatsApp is fine for a quick ping or time-sensitive threads.
           </p>
 
           <Badge variant="accent" className="mb-8 px-4 py-2 text-sm">
@@ -29,7 +39,7 @@ export function Contact() {
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-12">
             <a
-              href={`mailto:${site.email}?subject=Project%20inquiry%20from%20your%20portfolio`}
+              href={`mailto:${site.email}?subject=Role%20or%20project%20inquiry%20from%20your%20portfolio`}
             >
               <Button size="lg" className="w-full sm:w-auto">
                 <Mail className="h-4 w-4" />
@@ -58,15 +68,22 @@ export function Contact() {
               href={site.social.github}
             />
             <ContactCard
-              icon={<Briefcase className="h-4 w-4" />}
-              label="Upwork"
-              value="Top Rated freelancer"
-              href={site.social.upwork}
+              icon={<BookOpen className="h-4 w-4" />}
+              label="Writing"
+              value="Medium (@birehan)"
+              href={site.social.medium}
             />
             <ContactCard
-              icon={<MapPin className="h-4 w-4" />}
-              label="Location"
-              value={`${site.location.split(",")[0]} · ${site.timezone}`}
+              icon={<MessageCircle className="h-4 w-4" />}
+              label="WhatsApp"
+              value={site.whatsapp}
+              href={getWhatsAppHref()}
+            />
+            <ContactCard
+              icon={<Calendar className="h-4 w-4" />}
+              label={hasBooking ? "Book a call" : "Schedule"}
+              value={hasBooking ? "30-min intro call" : "Email to schedule"}
+              href={hasBooking ? site.bookingUrl : undefined}
             />
           </div>
         </div>

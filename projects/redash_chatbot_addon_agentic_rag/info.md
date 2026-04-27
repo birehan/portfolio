@@ -12,13 +12,13 @@ stack:
   - LLMs
 links:
   github: https://github.com/birehan/Redash-NLP-Chatbot-Analytics
-  medium: https://medium.com/@birehananteneh4/revolutionizing-data-analysis-with-redash-chatbot-add-on-5f0e63187343
-order: 3
+  medium: https://medium.com/@birehanzewdie4/revolutionizing-data-analysis-with-redash-chatbot-add-on-5f0e63187343
+order: 2
 date: 2024
 ---
 
 medium link
-https://medium.com/@birehananteneh4/revolutionizing-data-analysis-with-redash-chatbot-add-on-5f0e63187343
+https://medium.com/@birehanzewdie4/revolutionizing-data-analysis-with-redash-chatbot-add-on-5f0e63187343
 
 github link
 

@@ -14,7 +14,7 @@ stack:
   - Streamlit
 links:
   github: https://github.com/birehan/Loan-Risk-Prediction-Pipeline
-order: 1
+order: 3
 date: "Sep 2024"
 ---
 

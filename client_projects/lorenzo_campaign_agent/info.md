@@ -1,9 +1,10 @@
 ---
 title: "Lorenzo — AI Campaign Strategy Builder"
 slug: lorenzo-campaign-agent
-role: Backend & AI Integration (LLM scripting · API deployment)
-summary: "Replaced static onboarding forms with an LLM-driven chat interface that validates campaign briefs in real time and generates intelligent targeting suggestions for a smart mobile advertising platform."
-outcome: "Conversational onboarding with automated input validation and predictive targeting suggestions for ages, interests, and audience groups."
+role: ML Engineer @ Adludio — LLM backends & Lambda APIs (campaign automation)
+summary: "At Adludio: a chat-first campaign builder so advertisers go from rough idea to structured, pre-targeted drafts without long static forms on the mobile ad stack."
+outcome: "Faster setup for advertisers; campaign managers spend less time cleaning briefs once campaigns are in flight."
+
 stack:
   - LLMs
   - AWS Lambda
@@ -11,51 +12,57 @@ stack:
   - API Deployment
 links:
   demo: https://drive.google.com/file/d/1ZIvLmUBAwKuz2etdoRIEhRgkyS9SR5As/view?usp=sharing
-featured: false
-order: 6
+featured: true
+order: 0
 date: 2024
 ---
 
+# Lorenzo — AI Campaign Strategy Builder
 
-link 
-https://drive.google.com/file/d/1ZIvLmUBAwKuz2etdoRIEhRgkyS9SR5As/view?usp=sharing
+> **Adludio (London), ML Engineer.** Lorenzo streamlines **campaign creation** for
+> advertisers: instead of wrestling with rigid forms, they describe goals in chat
+> and the product assembles a coherent campaign strategy—brief, segments, and
+> suggested targeting—before anything goes live.
 
+**Scope:** Backend & AI integration — LLM prompt design, structured outputs, AWS
+Lambda APIs, and wiring into the existing campaign UI.
 
+## The problem
 
-1. Extracted Text Content & Summary
-Based on the video's audio and on-screen text, here is the core sequence of events:
+Campaign setup relied on a long static form. Advertisers often submitted thin or
+inconsistent briefs; problems showed up only after campaigns were running.
+Campaign managers then chased clients for clarification—slow for **clients** and
+expensive for the team.
 
-Introduction: You (Brehan) introduce a platform called Lorenzo, built for a smart mobile advertising company.
+## What I built
 
-The Feature: You demonstrate the "Strategy Builder," a tool for creating new advertising campaigns.
+A **chat-first campaign builder** that automates the early setup path:
 
-AI Chat Interface: Instead of traditional forms, the platform uses an LLM-powered chat interface to gather campaign details.
+1. **Guided brief capture.** Natural-language messages are checked in real time;
+   the model rejects vague or off-topic input and asks for specifics so the
+   campaign definition stays usable.
+2. **Structured strategy.** From a short description it infers industry, product
+   context, and implied audience (e.g. American football in Europe vs generic
+   “sports”).
+3. **Targeting suggestions.** Age bands, interest groups, and keyword clusters are
+   proposed as **editable** defaults, then flow into the platform’s targeting
+   model when accepted—so **creating the ad campaign** is faster and more
+   consistent for clients.
 
-Intelligent Validation: You input a product name ("Football") and a nonsense description ("bla bla bla"). The LLM correctly analyzes the input, realizes it doesn't match the product, and asks for a more descriptive, relevant input.
+## Architecture
 
-Contextual Understanding: Once provided with a valid description (a campaign about American Football in Europe/Premier League), the system accepts it and moves forward.
+- **LLM layer** — Prompt templates with strict schemas for validation, context
+  extraction, and suggestions; retries when the model violates the schema.
+- **API** — Serverless Python on AWS Lambda for the chat flow, session state, and
+  stable JSON contracts for the frontend.
+- **Integration** — Embedded in the existing management UI so approved segments
+  land directly in the live campaign configuration.
 
-Dynamic Suggestions: Based on the campaign description and selected industry (Sports > American Football), the LLM automatically suggests optimal targeting metrics, including:
+## Outcome
 
-Age Ranges: Young Adults (18-24), Early Adults (25-34), Mid Adults (35-44).
+Less back-and-forth after onboarding: advertisers moved from idea to a
+validated, pre-targeted **draft campaign** in one session instead of email
+threads and form revisions. Campaign managers spent less time cleaning bad
+briefs post-launch.
 
-Interest Groups/Keywords: Football Enthusiasts, Premier League, Sports Fans, Match Viewers, etc.
-
-Technical Architecture (Mentioned at the end): You note that your work focused on integration, AWS Lambda API deployment, and the underlying LLM scripts.
-
-2. Key Portfolio Takeaways (What to Highlight)
-You can use these points directly in your resume or portfolio write-up to showcase your specific skills and the business value of the project.
-
-Project Title: AI-Powered Campaign Strategy Builder (Lorenzo Platform)
-
-Your Role/Focus: Backend & AI Integration (LLM scripting, API deployment)
-
-Key Features to Highlight:
-
-Conversational UI: Replaced static web forms with an intuitive, LLM-driven chat interface for campaign onboarding.
-
-Automated Input Validation: Engineered LLM prompts to analyze user inputs in real-time, successfully identifying and rejecting nonsensical or irrelevant data to ensure high-quality data collection.
-
-Predictive Targeting: Utilized LLMs to automatically generate intelligent audience targeting suggestions (age ranges, specific interest groups) based on brief user descriptions.
-
-Tech Stack Mentioned: LLMs (Large Language Models), AWS Lambda, API Deployment, Backend Integration.
+[Watch the demo (Google Drive)](https://drive.google.com/file/d/1ZIvLmUBAwKuz2etdoRIEhRgkyS9SR5As/view?usp=sharing)

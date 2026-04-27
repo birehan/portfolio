@@ -1,31 +1,32 @@
 export const site = {
-  name: "Birehan Anteneh",
-  initials: "BA",
-  role: "AI/ML Engineer",
+  name: "Birehan Zewdie",
+  initials: "BZ",
+  role: "AI Engineer",
   tagline:
-    "AI/ML Engineer building production LLM systems for clients and product teams.",
+    "I build production AI systems: RAG, LLM agents, and the backends behind them.",
   longDescription:
-    "I design, build, and ship AI products end-to-end — from RAG pipelines and LLM agents to backend platforms and the data systems behind them. Currently ML Engineer at The COOL Company.",
-  location: "Addis Ababa, Ethiopia",
-  timezone: "GMT+3",
+    "AI Engineer designing and shipping production LLM and ML systems end-to-end, from retrieval pipelines and agent workflows to the async Python backends and cloud infrastructure that keep them running.",
   email: "birehananteneh4@gmail.com",
+  /** E.164; used for display and wa.me links */
+  whatsapp: "+251982070195",
   url: "https://birehan.dev",
+  bookingUrl: "",
+  plausibleDomain: "birehan.dev",
   social: {
     github: "https://github.com/birehan",
     linkedin: "https://linkedin.com/in/birehan",
-    upwork: "https://www.upwork.com/freelancers/birehananteneh",
-    medium: "https://medium.com/@birehananteneh4",
+    upwork: "https://www.upwork.com/freelancers/birehanzewdie",
+    medium: "https://medium.com/@birehanzewdie4",
+    twitter: "",
   },
-  trust: [
-    { label: "Top Rated · Upwork" },
-    { label: "10+ clients shipped" },
-    { label: "$10K+ delivered" },
-    { label: "1,000+ hours" },
-  ],
   availability: {
     open: true,
-    text: "Open to contract, freelance, and full-time remote roles.",
+    text: "Open to full-time remote and contract AI / ML engineering roles.",
   },
 } as const;
 
 export type Site = typeof site;
+
+export function getWhatsAppHref(): string {
+  return `https://wa.me/${site.whatsapp.replace(/\D/g, "")}`;
+}

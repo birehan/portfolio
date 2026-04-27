@@ -1,10 +1,10 @@
 Introduction to Large Language Models
-Completed by Birehan Zewde
+Completed by Birehan Zewdie
 October 25, 2023
 
 hours (approximately)
 
-Birehan Zewde's account is verified. Coursera certifies their successful completion of Introduction to Large Language Models
+Birehan Zewdie's account is verified. Coursera certifies their successful completion of Introduction to Large Language Models
 
 Google Cloud
 Introduction to Large Language Models

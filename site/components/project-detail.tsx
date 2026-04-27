@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowLeft,
   ArrowRight,
@@ -8,12 +7,14 @@ import {
   BookOpen,
   Smartphone,
   Play,
+  CalendarDays,
 } from "lucide-react";
 import type { Project } from "@/lib/content";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Markdown } from "@/components/markdown";
 import { ProjectGallery } from "@/components/project-gallery";
+import { MarkdownToc, extractHeadings } from "@/components/markdown-toc";
 
 type Props = {
   project: Project;
@@ -23,12 +24,31 @@ type Props = {
   backLabel: string;
 };
 
+function readingMinutes(md: string): number {
+  const words = md.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words / 220));
+}
+
+/** Cover first, then remaining gallery paths (deduped). */
+function orderedProjectMedia(project: Project): string[] {
+  const paths = project.gallery;
+  if (paths.length === 0) return [];
+  const c = project.cover;
+  if (!c) return paths;
+  const rest = paths.filter((p) => p !== c);
+  return [c, ...rest];
+}
+
 export function ProjectDetail({ project, prev, next, basePath, backLabel }: Props) {
+  const headings = extractHeadings(project.body);
+  const minutes = readingMinutes(project.body);
+  const gallerySlides = orderedProjectMedia(project);
+
   return (
     <article className="pb-20">
       <div className="container-x pt-12 md:pt-16">
         <Link
-          href="/#work"
+          href={basePath === "/work" ? "/#work" : "/#projects"}
           className="inline-flex items-center gap-1.5 text-sm font-mono text-[var(--muted)] hover:text-[var(--accent)] mb-8"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -44,11 +64,36 @@ export function ProjectDetail({ project, prev, next, basePath, backLabel }: Prop
           <h1 className="h1 mb-5">{project.title}</h1>
           <p className="lead text-lg">{project.summary}</p>
 
+          {gallerySlides.length > 0 && (
+            <div className="mt-8 md:mt-10 max-w-5xl">
+              <h2 className="text-sm font-semibold tracking-tight text-[var(--text)] mb-2">
+                Project gallery
+              </h2>
+              <p className="text-sm text-[var(--muted)] mb-4">
+                {gallerySlides.length > 1
+                  ? "Use the side arrows to browse; click an image for full size."
+                  : "Click the image for full size."}
+              </p>
+              <ProjectGallery images={gallerySlides} title={project.title} />
+            </div>
+          )}
+
           {project.outcome && (
-            <p className="mt-5 text-base text-[var(--text)] font-medium border-l-2 border-[var(--accent)] pl-4 max-w-3xl">
+            <p className="mt-8 md:mt-10 text-base text-[var(--text)] font-medium border-l-2 border-[var(--accent)] pl-4 max-w-3xl">
               {project.outcome}
             </p>
           )}
+
+          <div className="flex flex-wrap items-center gap-3 mt-5 text-xs font-mono text-[var(--muted)]">
+            {project.date && (
+              <span className="inline-flex items-center gap-1.5">
+                <CalendarDays className="h-3 w-3" />
+                {project.date}
+              </span>
+            )}
+            <span>·</span>
+            <span>{minutes} min read</span>
+          </div>
 
           <div className="flex flex-wrap items-center gap-2 mt-7">
             {project.links.live && (
@@ -105,41 +150,14 @@ export function ProjectDetail({ project, prev, next, basePath, backLabel }: Prop
         </header>
       </div>
 
-      {project.cover && (
-        <div className="container-x mt-10 md:mt-14">
-          <div className="relative aspect-[16/9] md:aspect-[2/1] overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface-2)]">
-            <Image
-              src={project.cover}
-              alt={project.title}
-              fill
-              priority
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              className="object-cover object-top"
-            />
-          </div>
-        </div>
-      )}
-
       <div className="container-x mt-12 md:mt-16">
-        <div className="max-w-3xl">
-          <Markdown content={project.body} />
+        <div className="grid xl:grid-cols-[minmax(0,1fr)_220px] gap-8">
+          <div className="max-w-3xl">
+            <Markdown content={project.body} />
+          </div>
+          <MarkdownToc headings={headings} />
         </div>
       </div>
-
-      {project.gallery.length > 1 && (
-        <div className="container-x mt-16">
-          <h2 className="text-xl font-semibold tracking-tight mb-2">
-            Project gallery
-          </h2>
-          <p className="text-sm text-[var(--muted)] mb-6">
-            Tap any image to view full size.
-          </p>
-          <ProjectGallery
-            images={project.gallery.filter((g) => g !== project.cover)}
-            title={project.title}
-          />
-        </div>
-      )}
 
       <nav
         aria-label="Project navigation"

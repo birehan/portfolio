@@ -12,13 +12,13 @@ stack:
   - RAG
 links:
   github: https://github.com/Adwa-Collab/Amharic-RAG-Ad-Builder
-  medium: https://medium.com/@birehananteneh4/llm-finetuning-enabling-quality-embedding-and-text-generation-for-amharic-language-643d55c90d33
-order: 2
+  medium: https://medium.com/@birehanzewdie4/llm-finetuning-enabling-quality-embedding-and-text-generation-for-amharic-language-643d55c90d33
+order: 4
 date: 2024
 ---
 
 medium link
-https://medium.com/@birehananteneh4/llm-finetuning-enabling-quality-embedding-and-text-generation-for-amharic-language-643d55c90d33
+https://medium.com/@birehanzewdie4/llm-finetuning-enabling-quality-embedding-and-text-generation-for-amharic-language-643d55c90d33
 
 github link
 https://github.com/Adwa-Collab/Amharic-RAG-Ad-Builder

@@ -12,6 +12,13 @@ const HIDDEN_HEADINGS = [
   /weaknesses you should know/i,
 ];
 
+// Lines that signal leaked scratch notes even outside a heading block.
+const LEAK_PREFIXES = [
+  /^\s*extracted text content/i,
+  /^\s*based on the video'?s audio/i,
+  /^\s*\d+\.\s+extracted text content/i,
+];
+
 function stripCandidNotes(md: string): string {
   const lines = md.split(/\n/);
   const out: string[] = [];
@@ -39,8 +46,21 @@ function stripCandidNotes(md: string): string {
   return out.join("\n");
 }
 
+// Drop the pre-h1 preamble that some info.md files have (scratch notes before
+// the first real heading). Keep everything from the first `#`/`##` onward.
+function dropPreamble(md: string): string {
+  const idx = md.search(/^#{1,3}\s+/m);
+  if (idx <= 0) return md;
+
+  const before = md.slice(0, idx);
+  const hasLeak = LEAK_PREFIXES.some((re) => re.test(before));
+  if (!hasLeak) return md;
+
+  return md.slice(idx);
+}
+
 export function Markdown({ content }: { content: string }) {
-  const cleaned = stripCandidNotes(content);
+  const cleaned = stripCandidNotes(dropPreamble(content));
   return (
     <div className="prose-content max-w-none">
       <ReactMarkdown

@@ -12,14 +12,14 @@ stack:
   - EDA
 links:
   github: https://github.com/birehan/Automated-Storyboard-Synthesis-for-Digital-Advertising
-  medium: https://medium.com/@birehananteneh4/automated-storyboard-synthesis-for-digital-advertising-78828a34d085
-order: 4
+  medium: https://medium.com/@birehanzewdie4/automated-storyboard-synthesis-for-digital-advertising-78828a34d085
+order: 5
 date: "Feb 2024"
 ---
 
 medium link
 
-https://medium.com/@birehananteneh4/automated-storyboard-synthesis-for-digital-advertising-78828a34d085
+https://medium.com/@birehanzewdie4/automated-storyboard-synthesis-for-digital-advertising-78828a34d085
 
 
 github link

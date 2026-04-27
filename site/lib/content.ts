@@ -327,7 +327,7 @@ export function getAllCertificates(): Certificate[] {
     }
 
     if (cat.id === "10-academy") {
-      const cert = readCertificateFromFolder(categoryFolder, null, "10 Academy — Distinction");
+      const cert = readCertificateFromFolder(categoryFolder, null, "10 Academy Distinction");
       const tenAcademyDir = catPath;
       const imagesDir = path.join(tenAcademyDir, "images");
       const images = fs.existsSync(imagesDir) ? listImages(imagesDir) : [];
@@ -337,7 +337,8 @@ export function getAllCertificates(): Certificate[] {
       if (main) {
         out.push({
           slug: "10-academy-distinction",
-          title: "10 Academy — Machine Learning, Generative AI, Data Engineering & Web3 (with Distinction)",
+          title:
+            "10 Academy: Machine Learning, Generative AI, Data Engineering & Web3 (with Distinction)",
           category: cat.id,
           categoryLabel: cat.label,
           issuer: "10 Academy",

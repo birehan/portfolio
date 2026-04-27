@@ -9,7 +9,7 @@ export function Achievements() {
     <section id="achievements" className="section bg-[var(--surface)] border-y border-[var(--border)]">
       <div className="container-x">
         <div className="mb-12 max-w-3xl">
-          <p className="eyebrow">06 — Achievements & education</p>
+          <p className="eyebrow">05: Achievements & education</p>
           <h2 className="h2">
             Recognition and <span className="text-[var(--accent)]">academic record</span>
           </h2>
@@ -67,7 +67,7 @@ export function Achievements() {
               {education.map((e) => (
                 <Card key={e.institution} className="p-5">
                   <p className="font-mono text-xs text-[var(--muted)] mb-1">
-                    {e.start} — {e.end}
+                    {e.start} to {e.end}
                   </p>
                   <h4 className="font-semibold text-sm tracking-tight mb-1">{e.institution}</h4>
                   <p className="text-xs text-[var(--accent)] mb-2">{e.degree}</p>

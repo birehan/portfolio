@@ -16,11 +16,12 @@ const sectionMeta: Record<
 > = {
   "10-academy": {
     title: "10 Academy",
-    subtitle: "6-month intensive ML / Generative AI / Data Engineering / Web3 program — completed with Distinction as Cohort A Valedictorian.",
+    subtitle:
+      "6-month intensive ML / Generative AI / Data Engineering / Web3 program, completed with Distinction as Cohort A Valedictorian.",
   },
   competitive: {
     title: "Competitive Programming",
-    subtitle: "Awards from A2SV (Africa to Silicon Valley) and the Ethiopian Collegiate Programming Contest (EtCPC).",
+    subtitle: "Awards from A2SV (Africa to Silicon Valley) and the EtCPC collegiate programming contest.",
   },
   coursera: {
     title: "Coursera",

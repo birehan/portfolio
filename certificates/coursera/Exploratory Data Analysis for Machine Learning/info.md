@@ -1,10 +1,10 @@
 Exploratory Data Analysis for Machine Learning
-Completed by Birehan Zewde
+Completed by Birehan Zewdie
 October 29, 2023
 
 14 hours (approximately)
 
-Birehan Zewde's account is verified. Coursera certifies their successful completion of Exploratory Data Analysis for Machine Learning
+Birehan Zewdie's account is verified. Coursera certifies their successful completion of Exploratory Data Analysis for Machine Learning
 
 IBM
 Exploratory Data Analysis for Machine Learning
@@ -40,7 +40,7 @@ Category: Anomaly Detection
 Anomaly Detection
 Category: Data Access
 Data Access
-View certificate for Birehan Zewde, Exploratory Data Analysis for Machine Learning, an online non-credit course authorized by IBM and offered through Coursera
+View certificate for Birehan Zewdie, Exploratory Data Analysis for Machine Learning, an online non-credit course authorized by IBM and offered through Coursera
 Coursera Footer
 
 Skills
