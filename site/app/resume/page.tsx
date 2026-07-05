@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, Download, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { site, getWhatsAppHref } from "@/lib/site";
+import { site, getWhatsAppHref, canonical } from "@/lib/site";
 import {
   experience,
   education,
@@ -12,8 +12,9 @@ import {
 } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Resume",
-  description: `Resume of ${site.name}, ${site.role}. Full experience, education, skills, and achievements.`,
+  title: "Resume — Full-Stack AI Engineer (LLMs, RAG, FastAPI, Next.js)",
+  description: `Resume of ${site.name}, ${site.role} with 4+ years of software / AI engineering: LLM and RAG products, AI agents, FastAPI/Python backends, Next.js/React frontends, and cloud deployment. Experience, education, skills, and awards.`,
+  alternates: { canonical: canonical("/resume") },
 };
 
 export default function ResumePage() {
@@ -53,6 +54,9 @@ export default function ResumePage() {
         <ResumeHeader />
         <ResumeSection title="Summary">
           <p className="text-sm leading-relaxed text-[var(--muted)] print:text-black">
+            <span className="text-[var(--text)] font-medium print:text-black">
+              4+ years of software / AI engineering.
+            </span>{" "}
             {site.longDescription}
           </p>
         </ResumeSection>
@@ -173,10 +177,10 @@ function ResumeHeader() {
         >
           <MessageCircle className="h-3 w-3" /> {site.whatsapp}
         </a>
-        <a href={site.social.linkedin} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 hover:text-[var(--accent)]">
+        <a href={site.social.linkedin} target="_blank" rel="me noopener" className="inline-flex items-center gap-1.5 hover:text-[var(--accent)]">
           <Linkedin className="h-3 w-3" /> /in/birehan
         </a>
-        <a href={site.social.github} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 hover:text-[var(--accent)]">
+        <a href={site.social.github} target="_blank" rel="me noopener" className="inline-flex items-center gap-1.5 hover:text-[var(--accent)]">
           <Github className="h-3 w-3" /> @birehan
         </a>
       </div>

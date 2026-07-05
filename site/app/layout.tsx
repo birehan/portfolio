@@ -5,7 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
-import { site, getWhatsAppHref } from "@/lib/site";
+import { site, getWhatsAppHref, canonical } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,18 +26,61 @@ export const metadata: Metadata = {
     template: `%s · ${site.name}`,
   },
   description: site.tagline,
+  alternates: {
+    canonical: canonical("/"),
+  },
   keywords: [
+    // Role titles recruiters actually search
+    "Full-Stack AI Engineer",
+    "AI Full-Stack Engineer",
+    "AI Software Engineer",
     "AI Engineer",
+    "Generative AI Engineer",
+    "GenAI Engineer",
+    "LLM Engineer",
+    "RAG Engineer",
+    "AI Application Engineer",
+    "AI Product Engineer",
+    "Machine Learning Engineer",
     "ML Engineer",
+    "Software Engineer",
+    "Backend Engineer",
+    "Full-Stack Engineer",
+    "Remote AI Engineer",
+    // Stack and skills (all shipped in production)
     "LLM",
+    "Large Language Models",
     "RAG",
+    "Agentic RAG",
+    "AI Agents",
+    "LangChain",
+    "LLM Fine-tuning",
+    "Prompt Engineering",
+    "LLM Evaluation",
+    "Vector Database",
+    "pgvector",
+    "Semantic Search",
     "FastAPI",
+    "Python",
     "Next.js",
-    "Birehan Zewdie",
+    "React",
+    "TypeScript",
+    "PostgreSQL",
+    "OpenAI API",
+    "Docker",
+    "GCP",
+    "AWS",
+    "Cloud Run",
+    "CI/CD",
     "Generative AI",
+    // Identity and location
+    "Birehan Zewdie",
+    "Addis Ababa",
+    "Ethiopia",
   ],
-  authors: [{ name: site.name }],
+  authors: [{ name: site.name, url: site.url }],
   creator: site.name,
+  publisher: site.name,
   openGraph: {
     title: `${site.name} | ${site.role}`,
     description: site.tagline,
@@ -75,14 +118,59 @@ export const viewport: Viewport = {
   themeColor: "#000000",
 };
 
+const personId = `${site.url}/#person`;
+
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": personId,
   name: site.name,
   url: site.url,
+  image: `${site.url}${site.image}`,
   jobTitle: site.role,
   email: `mailto:${site.email}`,
-  description: site.tagline,
+  description: site.longDescription,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: site.location.city,
+    addressRegion: site.location.region,
+    addressCountry: site.location.countryCode,
+  },
+  homeLocation: {
+    "@type": "Place",
+    name: `${site.location.city}, ${site.location.country}`,
+  },
+  nationality: {
+    "@type": "Country",
+    name: site.location.country,
+  },
+  knowsLanguage: ["English", "Amharic"],
+  alumniOf: [
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Addis Ababa University",
+    },
+    {
+      "@type": "EducationalOrganization",
+      name: "10 Academy",
+    },
+    {
+      "@type": "EducationalOrganization",
+      name: "A2SV (Africa to Silicon Valley)",
+    },
+  ],
+  worksFor: {
+    "@type": "Organization",
+    name: "The COOL Company",
+  },
+  hasOccupation: {
+    "@type": "Occupation",
+    name: "Full-Stack AI Engineer",
+    occupationalCategory: "15-1252.00 Software Developers",
+    skills:
+      "LLMs, Retrieval-Augmented Generation, AI Agents, LangChain, FastAPI, Python, Next.js, React, TypeScript, PostgreSQL, pgvector, Prompt Engineering, LLM Evaluation, MLOps",
+  },
+  mainEntityOfPage: canonical("/about"),
   sameAs: [
     site.social.github,
     site.social.linkedin,
@@ -91,14 +179,45 @@ const personJsonLd = {
     getWhatsAppHref(),
   ].filter(Boolean),
   knowsAbout: [
+    "Full-Stack AI Engineering",
     "AI Engineering",
+    "Software Engineering",
     "Machine Learning",
+    "Generative AI",
     "Large Language Models",
     "Retrieval-Augmented Generation",
+    "Agentic RAG",
+    "AI Agents",
+    "LangChain",
+    "LLM Fine-tuning",
+    "Prompt Engineering",
+    "LLM Evaluation",
+    "Vector Databases",
+    "Semantic Search",
     "FastAPI",
     "Python",
+    "TypeScript",
     "Next.js",
+    "React",
+    "PostgreSQL",
+    "pgvector",
+    "Docker",
+    "Cloud Run",
+    "CI/CD",
+    "MLOps",
   ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${site.url}/#website`,
+  url: site.url,
+  name: `${site.name} — ${site.role}`,
+  description: site.tagline,
+  inLanguage: "en",
+  publisher: { "@id": personId },
+  author: { "@id": personId },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -113,6 +232,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <Script
+          id="website-jsonld"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         {plausibleEnabled && (
           <Script

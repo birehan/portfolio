@@ -37,6 +37,20 @@ Guests message and call **outside staff hours**; high-value **event** enquiries 
 
 ## Architecture (at a glance)
 
+```
+ Web widget       Messenger          Phone (Twilio)
+     | HTTP         | webhook            | SIP
+     v              v                    v
+              n8n workflows (orchestration)
+     |               |                     |
+     v               v                     v
+OpenAI chat +   PGVector retrieval     Vapi voice layer
+ embeddings      (per-venue KB)         + human transfer
+     |
+     v
+Postgres session memory  ·  Google Sheets (lead CRM)
+```
+
 Inbound traffic from **web**, **Messenger**, and **Twilio** fans into **n8n** workflows that call **OpenAI** (chat + embeddings), **PGVector** retrieval, and persistence—then optional **Sheets** rows for leads. Voice adds **Vapi** on the telephony path with human transfer when needed.
 
 ## Stack

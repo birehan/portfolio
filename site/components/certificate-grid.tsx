@@ -7,6 +7,11 @@ import type { Certificate } from "@/lib/content";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+function certAlt(c: Certificate): string {
+  const issuer = c.issuer ? ` from ${c.issuer}` : "";
+  return `${c.title}${issuer} — ${c.categoryLabel} certificate awarded to Birehan Zewdie`;
+}
+
 export function CertificateGrid({ certificates }: { certificates: Certificate[] }) {
   const [open, setOpen] = useState<Certificate | null>(null);
 
@@ -27,7 +32,7 @@ export function CertificateGrid({ certificates }: { certificates: Certificate[] 
               {c.image ? (
                 <Image
                   src={c.image}
-                  alt={c.title}
+                  alt={certAlt(c)}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-contain p-3 group-hover:scale-[1.02] transition-transform duration-300"
@@ -100,7 +105,7 @@ export function CertificateGrid({ certificates }: { certificates: Certificate[] 
             {open.image && (
               <Image
                 src={open.image}
-                alt={open.title}
+                alt={certAlt(open)}
                 fill
                 sizes="100vw"
                 className="object-contain"

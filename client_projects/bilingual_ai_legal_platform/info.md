@@ -39,6 +39,20 @@ The firm ran day-to-day work across **spreadsheets, ad hoc WhatsApp threads, and
 
 ## Architecture (at a glance)
 
+```
+Next.js app (RTL · Hijri/Greg)      WhatsApp Business Cloud API
+       |  REST                             |  signed webhooks
+       v                                   v
+        FastAPI  (feature-sliced · async SQLAlchemy 2)
+       |                  |                        |
+       v                  v                        v
+Legal Chat (RAG)     Practice ops           Alerting · Sheets
+OpenAI + pgvector   cases · contracts       reminders · court
+token-budgeted ctx   · court sessions        mirror
+       v
+PostgreSQL 17 + pgvector  ·  GCS / R2 files
+```
+
 - **Feature-sliced backend** — Each domain (`cases`, `contracts`, `legal_chat`, `whatsapp`, …) owns models, repositories, services, and routes so the API stays navigable as the product grew.
 - **Async SQLAlchemy 2** — Async sessions end-to-end; careful transaction boundaries for chat and outbound sends.
 - **Consistent API errors** — Single response envelope and stable error codes so the Next.js client can rely on one pattern.
@@ -49,6 +63,12 @@ The firm ran day-to-day work across **spreadsheets, ad hoc WhatsApp threads, and
 **Backend:** Python 3.12, FastAPI, Pydantic v2, SQLAlchemy 2 async, Alembic, PostgreSQL 17 + **pgvector**.  
 **AI:** OpenAI (`gpt-4o` / `gpt-4o-mini`), tiktoken, function calling.  
 **Infra:** Google Cloud Run, Cloud Build, Secret Manager, Cloud Logging; **Sentry**; optional OpenTelemetry.
+
+## Evaluation & how I verified quality
+
+- **Grounded drafting** — The assistant answers only from the firm's own reference corpus; retrieved chunks are token-budgeted and returned as structured (Pydantic) outputs, so drafts trace back to source instead of free-form hallucination.
+- **Bilingual correctness** — Arabic/English and Hijri/Gregorian output was validated on real firm documents, with Arabic typography and RTL layout checked in the exported DOCX/PDF.
+- **Safe actions** — WhatsApp function-calling flows require staff to confirm structured actions before anything is written, and every send is rate-limited and audit-logged.
 
 ## Result
 

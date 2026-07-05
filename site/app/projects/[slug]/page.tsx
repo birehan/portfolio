@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { getAllProjects, getProject } from "@/lib/content";
 import { ProjectDetail } from "@/components/project-detail";
-import { site } from "@/lib/site";
+import { site, canonical } from "@/lib/site";
 
 type Params = Promise<{ slug: string }>;
 
@@ -15,12 +15,16 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { slug } = await params;
   const project = getProject("personal", slug);
   if (!project) return { title: "Project not found" };
+  const url = canonical(`/projects/${project.slug}`);
   return {
     title: project.title,
     description: project.summary,
+    keywords: project.stack.length ? project.stack : undefined,
+    alternates: { canonical: url },
     openGraph: {
       title: project.title,
       description: project.summary,
+      url,
       images: project.cover ? [{ url: project.cover, alt: project.title }] : undefined,
       type: "article",
       siteName: site.name,
@@ -54,12 +58,32 @@ export default async function ProjectPage({ params }: { params: Params }) {
     ...(project.stack.length ? { keywords: project.stack.join(", ") } : {}),
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${site.url}/` },
+      { "@type": "ListItem", position: 2, name: "Projects", item: `${site.url}/#projects` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project.title,
+        item: `${site.url}/projects/${project.slug}/`,
+      },
+    ],
+  };
+
   return (
     <>
       <Script
         id={`creativework-${project.slug}`}
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Script
+        id={`breadcrumb-${project.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <ProjectDetail
         project={project}

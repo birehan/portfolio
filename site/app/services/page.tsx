@@ -5,11 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { services } from "@/lib/data";
-import { site } from "@/lib/site";
+import { site, canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services",
-  description: `Engagement types ${site.name} takes on: AI backends, RAG / LLM builds, and automation workflows.`,
+  title: "Services — AI Backend, RAG & LLM Builds, Automation",
+  description: `Contract engagements with ${site.name}, ${site.role}: production FastAPI/Python AI backends, RAG and LLM product builds with pgvector, and n8n / voice / chatbot automation shipped end-to-end.`,
+  alternates: { canonical: canonical("/services") },
 };
 
 export default function ServicesPage() {
@@ -24,14 +25,14 @@ export default function ServicesPage() {
       </Link>
 
       <header className="max-w-3xl mb-12">
-        <p className="eyebrow">For clients</p>
+        <p className="eyebrow">Contract work</p>
         <h1 className="h1 mb-5">
-          Three ways I deliver <span className="text-[var(--accent)]">for clients</span>
+          Select <span className="text-[var(--accent)]">contract engagements</span>
         </h1>
         <p className="lead text-lg">
-          Engagements I take on most often alongside full-time work. Each is
-          scoped to ship something real into production, not a prototype or a
-          slide deck.
+          My focus is full-time AI/ML roles, but I take on a small number of
+          contract engagements alongside that work. Each is scoped to ship
+          something real into production, not a prototype or a slide deck.
         </p>
       </header>
 
@@ -74,8 +75,8 @@ export default function ServicesPage() {
           proposal with milestones, and weekly written demos once we kick off.
         </p>
         <p className="text-sm text-[var(--muted)] leading-relaxed">
-          Most engagements are fixed-scope at a milestone price. For open-ended
-          platform work I bill hourly at my Top Rated Upwork rate.
+          Most engagements are fixed-scope at a milestone price, with hourly
+          billing available for open-ended platform work.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <a href={`mailto:${site.email}?subject=Project%20inquiry`}>

@@ -1,24 +1,3 @@
-Skills for Machine Learning with Python
-classification
+IBM course on core machine learning with Python: supervised and unsupervised methods including classification, logistic regression, and clustering with scikit-learn.
 
-
-Logistic Regression
-
-
-Machine Learning
-
-
-Clustering
-
-
-Learn more about these skills
-
-Discover jobs, people, learning content and conversations about these skills
-
-classification
-
-Logistic Regression
-
-Machine Learning
-
-Clustering
+Skills: classification, logistic regression, clustering, model evaluation.

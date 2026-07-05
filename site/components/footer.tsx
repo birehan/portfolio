@@ -33,7 +33,7 @@ export function Footer() {
               <a
                 href={site.social.github}
                 target="_blank"
-                rel="noopener"
+                rel="me noopener"
                 aria-label="GitHub"
                 className="grid h-10 w-10 place-items-center rounded-md text-[var(--muted)] hover:text-[var(--text)] hover:bg-[var(--surface-2)]"
               >
@@ -42,7 +42,7 @@ export function Footer() {
               <a
                 href={site.social.linkedin}
                 target="_blank"
-                rel="noopener"
+                rel="me noopener"
                 aria-label="LinkedIn"
                 className="grid h-10 w-10 place-items-center rounded-md text-[var(--muted)] hover:text-[var(--text)] hover:bg-[var(--surface-2)]"
               >
@@ -51,7 +51,7 @@ export function Footer() {
               <a
                 href={site.social.medium}
                 target="_blank"
-                rel="noopener"
+                rel="me noopener"
                 aria-label="Medium"
                 className="grid h-10 w-10 place-items-center rounded-md text-[var(--muted)] hover:text-[var(--text)] hover:bg-[var(--surface-2)]"
               >
@@ -84,10 +84,9 @@ export function Footer() {
           </FooterColumn>
 
           <FooterColumn title="Connect">
-            <FooterLink href="/#about">About</FooterLink>
+            <FooterLink href="/about/">About</FooterLink>
             <FooterLink href="/#contact">Contact</FooterLink>
             <FooterLink href="/resume/">Resume</FooterLink>
-            <FooterLink href="/services/">For clients</FooterLink>
           </FooterColumn>
         </div>
 

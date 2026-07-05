@@ -1,15 +1,23 @@
 export const site = {
   name: "Birehan Zewdie",
   initials: "BZ",
-  role: "AI Engineer",
+  role: "Full-Stack AI Engineer",
   tagline:
-    "I build production AI systems: RAG, LLM agents, and the backends behind them.",
+    "I build and ship production AI products end-to-end: RAG and LLM agents on async FastAPI backends, Next.js frontends, and the cloud infra behind them.",
   longDescription:
-    "AI Engineer designing and shipping production LLM and ML systems end-to-end, from retrieval pipelines and agent workflows to the async Python backends and cloud infrastructure that keep them running.",
+    "Full-Stack AI Engineer shipping production LLM and ML products end-to-end, from Next.js frontends and async FastAPI backends to retrieval pipelines, agent workflows, and the cloud infrastructure that keeps them running.",
   email: "birehananteneh4@gmail.com",
   /** E.164; used for display and wa.me links */
   whatsapp: "+251982070195",
   url: "https://birehan.dev",
+  /** Professional headshot, served from site/public */
+  image: "/birehan-zewdie.jpg",
+  location: {
+    city: "Addis Ababa",
+    region: "Addis Ababa",
+    country: "Ethiopia",
+    countryCode: "ET",
+  },
   bookingUrl: "",
   plausibleDomain: "birehan.dev",
   social: {
@@ -21,7 +29,7 @@ export const site = {
   },
   availability: {
     open: true,
-    text: "Open to full-time remote and contract AI / ML engineering roles.",
+    text: "Open to full-time remote Full-Stack AI / AI Software Engineer roles.",
   },
 } as const;
 
@@ -29,4 +37,12 @@ export type Site = typeof site;
 
 export function getWhatsAppHref(): string {
   return `https://wa.me/${site.whatsapp.replace(/\D/g, "")}`;
+}
+
+/** Absolute canonical URL for a given path (leading slash, keeps trailing slash convention). */
+export function canonical(path = "/"): string {
+  const base = site.url.replace(/\/$/, "");
+  if (path === "/" || path === "") return `${base}/`;
+  const clean = `/${path.replace(/^\/+/, "").replace(/\/+$/, "")}/`;
+  return `${base}${clean}`;
 }

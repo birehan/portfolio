@@ -39,6 +39,18 @@ The pipeline lived in **spreadsheets and manual review**. Underwriters opened ev
 
 ## Architecture (at a glance)
 
+```
+Borrower app  ·  Team portal
+       |  REST (async FastAPI)
+       v
+   Core API ---publish--->  Pub/Sub  --->  Worker pool
+       ^                              (OCR · LLM · retrieval)
+       |                                     |
+       +-------- structured results <--------+
+       v
+PostgreSQL + pgvector  ·  materialized views  ·  GCS / Drive
+```
+
 - **Hexagonal / clean layout** — Domain and application services stay independent of FastAPI and the database; repositories implement ports so storage (e.g. **GCS** vs **Google Drive**) and messaging can be swapped or faked in tests.
 - **Async end-to-end** — FastAPI + async SQLAlchemy + async HTTP to third parties, with retries and sensible handling of rate limits and failures.
 - **Read-heavy dashboards** — Heavy loan summaries are backed by a **materialized view** so tables stay fast as checklists and stages grow.
@@ -46,6 +58,12 @@ The pipeline lived in **spreadsheets and manual review**. Underwriters opened ev
 ## Stack
 
 Python 3.12, FastAPI, Pydantic v2, SQLAlchemy 2 (async), PostgreSQL 17 + **pgvector**, Alembic, Google **Cloud Run**, **Pub/Sub**, Cloud Storage / Drive, OpenAI / Gemini / Claude (via worker pipeline), LLMWhisperer for document extraction, Docker, OpenTelemetry.
+
+## Evaluation & how I verified quality
+
+- **Extraction checked field-by-field** — OCR/LLM document output was validated against known loan files; low-confidence extractions were flagged for reviewer sign-off instead of being auto-accepted.
+- **Human-in-the-loop by design** — Every AI validation emits a suggestion plus a confidence signal, and a reviewer approves or overrides it, so the model never silently drives an underwriting decision.
+- **Idempotent, replayable pipeline** — Because validation runs on Pub/Sub, updated or failed documents can be re-published and re-scored without corrupting prior state, which made it safe to iterate on prompts and rules in production.
 
 ## Result
 

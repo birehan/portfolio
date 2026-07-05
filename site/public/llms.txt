@@ -1,0 +1,40 @@
+# Birehan Zewdie
+
+> Full-Stack AI Engineer with 4+ years of software / AI engineering. Builds and ships production LLM and ML products end-to-end: RAG and LLM agents on async FastAPI/Python backends, Next.js/React frontends, and the cloud infrastructure (GCP, AWS, Docker, CI/CD) that keeps them running. Based in Addis Ababa, Ethiopia; open to full-time remote roles.
+
+## About
+
+- Role: Full-Stack AI Engineer (also fits AI Software Engineer, Generative AI Engineer, LLM/RAG Engineer, Machine Learning Engineer).
+- Location: Addis Ababa, Ethiopia. Remote-friendly across EU and US-East hours.
+- Languages: English, Amharic.
+- Site: https://birehan.dev
+
+## Core skills
+
+- LLMs & Generative AI: OpenAI, Claude, Gemini; prompt engineering; structured outputs (Pydantic / JSON schema).
+- Retrieval: RAG and agentic RAG with LangChain; PostgreSQL + pgvector; semantic search.
+- AI agents & function calling; LLM fine-tuning (Llama 2/3, BERT).
+- Evaluation: eval harnesses, LLM-as-judge, regression tests.
+- Backend: Python, FastAPI, async SQLAlchemy, PostgreSQL, event-driven systems.
+- Frontend: Next.js, React, TypeScript, Tailwind CSS.
+- Cloud / DevOps: Google Cloud Run, GCP Pub/Sub, AWS Lambda/SageMaker, Docker, GitHub Actions CI/CD, OpenTelemetry, Sentry.
+
+## Selected work
+
+- The COOL Company (AI/ML Engineer): AI floor-price prediction system (LightGBM) delivering a 7% revenue increase for DSPs.
+- Adludio (Machine Learning Engineer): automated pacing (~16% KPI lift) and an LLM pipeline that cut creative ideation time roughly in half.
+- Eskalate (AI Software Engineer, Team Lead): led a team of 18 to launch HakimHub, an AI-powered medical recommendation platform with a fine-tuned Llama 3 chatbot.
+- Al-Shalawi: bilingual Arabic/English legal platform with an RTL UI and a RAG drafting assistant, shipped end-to-end.
+
+## Links
+
+- Portfolio: https://birehan.dev
+- About: https://birehan.dev/about/
+- Resume: https://birehan.dev/resume/
+- GitHub: https://github.com/birehan
+- LinkedIn: https://linkedin.com/in/birehan
+- Writing (Medium): https://medium.com/@birehanzewdie4
+
+## Contact
+
+- Email: birehananteneh4@gmail.com

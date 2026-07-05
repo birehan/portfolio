@@ -5,11 +5,12 @@ import { articles } from "@/lib/data";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { site } from "@/lib/site";
+import { site, canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Writing",
-  description: `Articles and notes by ${site.name} on RAG, LLMs, fine-tuning, and production AI engineering.`,
+  title: "Writing — RAG, LLMs, Fine-tuning & Production AI",
+  description: `Articles and engineering notes by ${site.name} on RAG and agentic RAG, LLM fine-tuning, evaluation, and shipping production AI systems with FastAPI and Next.js.`,
+  alternates: { canonical: canonical("/writing") },
 };
 
 function formatDate(iso: string): string {

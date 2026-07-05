@@ -17,11 +17,25 @@ order: 5
 date: "Feb 2024"
 ---
 
-medium link
+# Automated Storyboard Synthesis for Digital Advertising
 
-https://medium.com/@birehanzewdie4/automated-storyboard-synthesis-for-digital-advertising-78828a34d085
+**Storyboard production dropped from about a week to a few hours.** A 10 Academy project that automates turning ad concepts and assets into storyboards for digital campaigns.
 
+## The problem
 
-github link
+Agencies build storyboards by hand for every campaign concept — slow, repetitive, and a bottleneck in a market where turnaround speed wins pitches.
 
-https://github.com/birehan/Automated-Storyboard-Synthesis-for-Digital-Advertising
+## What I built
+
+- **EDA on creative assets** to understand the formats, objects, and layouts that make up real ad creatives.
+- **YOLO object detection** to identify and place creative elements from source assets.
+- **An image-generation step** that assembles concept frames into a coherent storyboard aligned to the brief.
+- **An end-to-end pipeline** that takes concept inputs and produces storyboard frames.
+
+## Result
+
+What took roughly a week of manual work compressed into a few hours, letting the team iterate on more concepts per pitch. Full write-up on Medium.
+
+## Stack
+
+Python, YOLO, PyTorch, image generation, exploratory data analysis.

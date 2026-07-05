@@ -3,6 +3,32 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site";
 
+export function AboutBio() {
+  return (
+    <div className="prose-content">
+      <p>
+        I&apos;m {site.name.split(" ")[0]}, a full-stack AI engineer with 4+ years of
+        software / AI engineering. I build production products where AI is wired in
+        end-to-end — Next.js frontends, async FastAPI backends, and the RAG pipelines
+        and LLM agents behind them. I shipped Al-Shalawi, a bilingual Arabic/English
+        legal platform, from database and API through the RTL UI and a RAG drafting
+        assistant. At The COOL Company that was intelligent pricing and revenue tooling
+        inside programmatic ads; at Adludio before that, pacing and creative workflows
+        plus an LLM pipeline that cut concept iteration time about in half. The
+        through-line is software that stays reliable when intelligence sits in the
+        critical path.
+      </p>
+      <p>
+        I own the whole slice — frontend, backend, model, and the evaluation and
+        rollout glue so teams trust what ships. That sits on a Software Engineering
+        degree with an AI stream, 1,000+ competitive problems through A2SV, and
+        valedictorian at 10 Academy Cohort A. Same bar everywhere: ship AI software
+        that still makes sense after launch, not only in a demo.
+      </p>
+    </div>
+  );
+}
+
 export function About() {
   return (
     <section id="about" className="section">
@@ -13,25 +39,8 @@ export function About() {
             Engineer first,{" "}
             <span className="text-[var(--accent)]">AI second.</span>
           </h2>
-          <div className="prose-content mt-6">
-            <p>
-              I&apos;m {site.name.split(" ")[0]}, an AI software engineer. I build production
-              systems where AI is wired into the product: services and APIs, data
-              pipelines, and LLM-backed features people use every week. At The COOL Company
-              in New York that was intelligent pricing and revenue tooling inside programmatic
-              ads. At Adludio in London before that it was pacing and creative workflows,
-              plus an LLM-assisted pipeline that cut concept iteration time about in half.
-              The through-line is software that stays reliable when intelligence sits in the
-              critical path.
-            </p>
-            <p>
-              I lead with engineering discipline, then sweat the AI details: contracts,
-              evaluation, rollout, and the boring glue so teams trust what ships. That sits
-              on a Software Engineering degree with an AI stream, 1,000+ competitive
-              problems through A2SV, and valedictorian at 10 Academy Cohort A. Same bar
-              everywhere: ship AI software that still makes sense after launch, not only in
-              a demo.
-            </p>
+          <div className="mt-6">
+            <AboutBio />
           </div>
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <Link href="/#contact">

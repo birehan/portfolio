@@ -60,18 +60,21 @@ export function Contact() {
               label="LinkedIn"
               value="/in/birehan"
               href={site.social.linkedin}
+              me
             />
             <ContactCard
               icon={<Github className="h-4 w-4" />}
               label="GitHub"
               value="@birehan"
               href={site.social.github}
+              me
             />
             <ContactCard
               icon={<BookOpen className="h-4 w-4" />}
               label="Writing"
               value="Medium (@birehan)"
               href={site.social.medium}
+              me
             />
             <ContactCard
               icon={<MessageCircle className="h-4 w-4" />}
@@ -97,11 +100,13 @@ function ContactCard({
   label,
   value,
   href,
+  me,
 }: {
   icon: React.ReactNode;
   label: string;
   value: string;
   href?: string;
+  me?: boolean;
 }) {
   const inner = (
     <div className="rounded-md border border-[var(--border)] bg-[var(--bg)] p-4 hover:border-[var(--accent)] transition-colors h-full">
@@ -113,7 +118,7 @@ function ContactCard({
     </div>
   );
   return href ? (
-    <a href={href} target="_blank" rel="noopener" className="block">
+    <a href={href} target="_blank" rel={me ? "me noopener" : "noopener"} className="block">
       {inner}
     </a>
   ) : (

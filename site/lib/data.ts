@@ -13,10 +13,11 @@ export type Experience = {
 export const experience: Experience[] = [
   {
     company: "The COOL Company",
-    role: "Machine Learning Engineer",
+    role: "AI/ML Engineer",
     location: "New York, USA (Remote)",
     start: "May 2025",
-    end: "Jan 2026",
+    end: "Present",
+    current: true,
     track: "full-time",
     stack: [
       "Python",
@@ -29,8 +30,8 @@ export const experience: Experience[] = [
       "Model Deployment",
     ],
     bullets: [
-      "Built a data-driven AI floor-price prediction system using LightGBM to dynamically optimize pricing per ad request for DSPs, resulting in a 7% increase in revenue.",
-      "Built a client revenue-forecasting system that predicts daily revenue using scraped domain data, Google PageSpeed metrics, WHOIS information, historical performance data, and LLM-generated features, achieving 86%+ prediction accuracy.",
+      "7% revenue increase from a data-driven AI floor-price prediction system (LightGBM) that dynamically optimizes pricing per ad request for DSPs.",
+      "86%+ prediction accuracy on a client revenue-forecasting system built from scraped domain data, Google PageSpeed metrics, WHOIS data, historical performance, and LLM-generated features.",
     ],
   },
   {
@@ -42,36 +43,23 @@ export const experience: Experience[] = [
     track: "full-time",
     stack: ["Python", "PyTorch", "DCN v2", "LTR", "LLMs"],
     bullets: [
-      "Improved campaign ROI with an automated pacing algorithm (predictive modeling + real-time bid adjustments), with ~16% KPI lift.",
-      "Shipped a creative scoring system (history + LLMs) to rank creative variants, with ~10% engagement lift and ~5% CTR/CPA improvement.",
-      "Shipped an LLM pipeline for on-brand ad concepts aligned to campaign goals and cut creative ideation time by about half.",
-      "Shipped inventory scoring (DCN v2 + LTR) to tune bids across publishers, formats, and devices, with ~15% conversion lift and ~10% margin lift.",
+      "~16% KPI lift from an automated pacing algorithm that pairs predictive modeling with real-time bid adjustments to balance campaign spend.",
+      "~10% engagement lift and ~5% CTR/CPA improvement from a creative scoring system (historical performance + LLMs) that ranks creative variants before spend.",
+      "Cut creative ideation time roughly in half with an LLM pipeline that generates on-brand ad concepts aligned to campaign goals.",
+      "~15% conversion lift and ~10% margin lift from an inventory scoring model (DCN v2 + learning-to-rank) that tunes bids across publishers, formats, and devices.",
     ],
   },
   {
     company: "Eskalate S.C.",
-    role: "AI Software Developer · Team Lead",
-    location: "Remote",
-    start: "Mar 2023",
+    role: "AI Software Engineer · Team Lead",
+    location: "Addis Ababa, Ethiopia",
+    start: "Mar 2022",
     end: "Apr 2024",
     track: "full-time",
     stack: ["Llama 3", "AI Agents", "Python", "Next.js"],
     bullets: [
-      "Led a cross-functional team to launch HakimHub, a first-of-its-kind AI-powered medical recommendation platform, using Jira for structured planning, task tracking, and coordination through delivery.",
+      "Led a cross-functional team of 18 to launch HakimHub, a first-of-its-kind AI-powered medical recommendation platform, using Jira for structured planning, task tracking, and coordination through delivery.",
       "Fine-tuned a Llama 3-based chatbot using AI agents for personalized symptom assessments and follow-ups, integrated with tooling to query doctors and hospitals.",
-    ],
-  },
-  {
-    company: "AiQEM Tech",
-    role: "Software Engineer",
-    location: "Remote",
-    start: "Jul 2023",
-    end: "Sep 2023",
-    track: "full-time",
-    stack: ["React", "JavaScript", "Dashboards"],
-    bullets: [
-      "Built a React dashboard for advertisers to visualize campaign performance, including engagement, trends, and key metrics over time.",
-      "Partnered with product and stakeholders to gather requirements and tighten dashboard usability.",
     ],
   },
 ];
@@ -88,11 +76,14 @@ export const skillGroups: SkillGroup[] = [
     primary: true,
     items: [
       "LLMs (OpenAI, Claude, Gemini)",
-      "Retrieval-Augmented Generation (RAG)",
-      "Fine-tuning (Llama 2/3, BERT)",
+      "RAG & Agentic RAG (LangChain)",
       "AI Agents & Function Calling",
-      "Prompt Engineering & Evals",
+      "Fine-tuning (Llama 2/3, BERT)",
+      "Structured outputs (Pydantic / JSON schema)",
+      "Eval harnesses · LLM-as-judge · regression tests",
+      "Prompt Engineering",
       "LightGBM · PyTorch · scikit-learn",
+      "AI-native dev (Cursor, Claude Code)",
     ],
   },
   {
@@ -121,12 +112,14 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
-    title: "Frontend",
+    title: "Frontend / Full-Stack",
+    primary: true,
     items: [
       "Next.js 15 (App Router)",
       "React 19",
       "TypeScript 5",
       "Tailwind CSS",
+      "Ant Design · Zustand",
     ],
   },
   {
@@ -269,27 +262,35 @@ export type Article = {
 
 export const articles: Article[] = [
   {
-    title: "Retrieval-Augmented Generation in production: lessons from shipping",
+    title: "Contract Advisor RAG: building a high-precision legal expert LLM app",
     excerpt:
-      "Placeholder: replace with a real Medium article. What worked, what didn't, and the boring ops work that actually matters.",
-    date: "2025-01-01",
-    url: "https://medium.com/@birehanzewdie4",
-    tags: ["RAG", "LLMs", "FastAPI"],
+      "How I pushed a contract Q&A RAG system to 87% relevance with semantic chunking, hybrid retrieval, and a real evaluation loop instead of vibes.",
+    date: "2024-02-01",
+    url: "https://medium.com/@birehanzewdie4/contract-advisor-rag-towards-building-a-high-precision-legal-expert-llm-app-560c4776370c",
+    tags: ["RAG", "LLMs", "Evaluation"],
   },
   {
-    title: "Fine-tuning Llama 2 for low-resource languages",
+    title: "Fine-tuning Llama 2 for Amharic embeddings and text generation",
     excerpt:
-      "Placeholder: replace with a real Medium article. Data prep, LoRA config, evaluation, and what the numbers actually mean.",
-    date: "2024-06-01",
-    url: "https://medium.com/@birehanzewdie4",
+      "Enabling quality embeddings and generation for a low-resource language, then wiring the model into a RAG-based Amharic ad-copy builder.",
+    date: "2024-05-01",
+    url: "https://medium.com/@birehanzewdie4/llm-finetuning-enabling-quality-embedding-and-text-generation-for-amharic-language-643d55c90d33",
     tags: ["Fine-tuning", "LLMs", "Amharic"],
   },
   {
-    title: "Building an LLM gateway: multi-provider routing and retries",
+    title: "Automated storyboard synthesis for digital advertising",
     excerpt:
-      "Placeholder: replace with a real Medium article about routing between OpenAI / Claude / Gemini with structured outputs.",
-    date: "2024-10-01",
-    url: "https://medium.com/@birehanzewdie4",
-    tags: ["LLMs", "Architecture"],
+      "Combining EDA on creative assets, YOLO object detection, and image generation to cut storyboard production from a week to a few hours.",
+    date: "2024-02-15",
+    url: "https://medium.com/@birehanzewdie4/automated-storyboard-synthesis-for-digital-advertising-78828a34d085",
+    tags: ["Computer Vision", "Generative AI", "Ad-Tech"],
+  },
+  {
+    title: "Revolutionizing data analysis with a Redash chatbot add-on",
+    excerpt:
+      "An agentic RAG add-on that turns natural-language questions into SQL against existing Redash dashboards, so users chat with their data.",
+    date: "2024-01-01",
+    url: "https://medium.com/@birehanzewdie4/revolutionizing-data-analysis-with-redash-chatbot-add-on-5f0e63187343",
+    tags: ["Agentic RAG", "LLMs", "Analytics"],
   },
 ];
