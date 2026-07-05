@@ -9,7 +9,7 @@ export const site = {
   email: "birehananteneh4@gmail.com",
   /** E.164; used for display and wa.me links */
   whatsapp: "+251982070195",
-  url: "https://birehan.dev",
+  url: "https://birehan.me",
   /** Professional headshot, served from site/public */
   image: "/birehan-zewdie.jpg",
   location: {
@@ -19,7 +19,7 @@ export const site = {
     countryCode: "ET",
   },
   bookingUrl: "",
-  plausibleDomain: "birehan.dev",
+  plausibleDomain: "birehan.me",
   social: {
     github: "https://github.com/birehan",
     linkedin: "https://linkedin.com/in/birehan",

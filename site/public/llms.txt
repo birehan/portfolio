@@ -7,7 +7,7 @@
 - Role: Full-Stack AI Engineer (also fits AI Software Engineer, Generative AI Engineer, LLM/RAG Engineer, Machine Learning Engineer).
 - Location: Addis Ababa, Ethiopia. Remote-friendly across EU and US-East hours.
 - Languages: English, Amharic.
-- Site: https://birehan.dev
+- Site: https://birehan.me
 
 ## Core skills
 
@@ -28,9 +28,9 @@
 
 ## Links
 
-- Portfolio: https://birehan.dev
-- About: https://birehan.dev/about/
-- Resume: https://birehan.dev/resume/
+- Portfolio: https://birehan.me
+- About: https://birehan.me/about/
+- Resume: https://birehan.me/resume/
 - GitHub: https://github.com/birehan
 - LinkedIn: https://linkedin.com/in/birehan
 - Writing (Medium): https://medium.com/@birehanzewdie4
