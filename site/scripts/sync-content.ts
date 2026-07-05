@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import sharp from "sharp";
 
 const SITE_DIR = path.resolve(__dirname, "..");
@@ -7,10 +8,21 @@ const REPO_ROOT = path.resolve(SITE_DIR, "..");
 const PUBLIC_CONTENT = path.join(SITE_DIR, "public", "content");
 const RESUMES_DIR = path.join(REPO_ROOT, "resumes");
 const PUBLIC_DIR = path.join(SITE_DIR, "public");
+// Persistent encode cache (survives across runs, wiped by `npm ci`) so repeat
+// dev/build runs skip re-encoding unchanged images.
+const CACHE_DIR = path.join(SITE_DIR, "node_modules", ".cache", "content-images");
 
-const MAX_WIDTH = 1600;
-const WEBP_QUALITY = 82;
-const OPTIMIZE = process.env.SKIP_IMAGE_OPT !== "1";
+const MAX_WIDTH = 1280;
+const WEBP_QUALITY = 76;
+// Raster sources we convert to WebP; SKIP_IMAGE_OPT=1 keeps WebP output but
+// skips the downscale (kept for a fast local escape hatch).
+const RESIZE = process.env.SKIP_IMAGE_OPT !== "1";
+const RASTER = new Set([".png", ".jpg", ".jpeg", ".webp"]);
+
+/** Served filename for a source image: raster formats become .webp. */
+function servedName(file: string): string {
+  return file.replace(/\.(png|jpe?g)$/i, ".webp");
+}
 
 function rmrf(target: string) {
   if (!fs.existsSync(target)) return;
@@ -21,26 +33,38 @@ function ensureDir(p: string) {
   fs.mkdirSync(p, { recursive: true });
 }
 
-async function copyOrOptimizeFile(src: string, dest: string) {
-  if (!OPTIMIZE) {
-    fs.copyFileSync(src, dest);
-    return;
+function cachePathFor(src: string): string {
+  const h = crypto
+    .createHash("sha1")
+    .update(`${path.resolve(src)}|w${MAX_WIDTH}|q${WEBP_QUALITY}|r${RESIZE ? 1 : 0}`)
+    .digest("hex");
+  return path.join(CACHE_DIR, `${h}.webp`);
+}
+
+/** Encode a raster image to WebP (cached by source path + params + mtime). */
+async function optimizeToWebp(src: string): Promise<string> {
+  const cache = cachePathFor(src);
+  if (fs.existsSync(cache) && fs.statSync(cache).mtimeMs >= fs.statSync(src).mtimeMs) {
+    return cache;
   }
+  ensureDir(path.dirname(cache));
+  const pipeline = sharp(src, { failOn: "none" }).rotate();
+  if (RESIZE) {
+    const meta = await pipeline.metadata();
+    if (meta.width && meta.width > MAX_WIDTH) {
+      pipeline.resize({ width: MAX_WIDTH, withoutEnlargement: true });
+    }
+  }
+  await pipeline.webp({ quality: WEBP_QUALITY }).toFile(cache);
+  return cache;
+}
+
+async function copyOrOptimizeFile(src: string, dest: string) {
   const ext = path.extname(src).toLowerCase();
-  if (ext === ".png" || ext === ".jpg" || ext === ".jpeg" || ext === ".webp") {
+  if (RASTER.has(ext)) {
     try {
-      const pipeline = sharp(src, { failOn: "none" }).rotate();
-      const meta = await pipeline.metadata();
-      if (meta.width && meta.width > MAX_WIDTH) {
-        pipeline.resize({ width: MAX_WIDTH, withoutEnlargement: true });
-      }
-      if (ext === ".png") {
-        await pipeline.png({ compressionLevel: 9 }).toFile(dest);
-      } else if (ext === ".webp") {
-        await pipeline.webp({ quality: WEBP_QUALITY }).toFile(dest);
-      } else {
-        await pipeline.jpeg({ quality: 86, mozjpeg: true }).toFile(dest);
-      }
+      const cached = await optimizeToWebp(src);
+      fs.copyFileSync(cached, dest);
       return;
     } catch (err) {
       console.warn(`[sync] sharp failed on ${src}, copying raw: ${(err as Error).message}`);
@@ -54,12 +78,11 @@ async function copyDir(src: string, dest: string, predicate?: (file: string) => 
   ensureDir(dest);
   for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
     const s = path.join(src, entry.name);
-    const d = path.join(dest, entry.name);
     if (entry.isDirectory()) {
-      await copyDir(s, d, predicate);
+      await copyDir(s, path.join(dest, entry.name), predicate);
     } else if (entry.isFile()) {
       if (!predicate || predicate(entry.name)) {
-        await copyOrOptimizeFile(s, d);
+        await copyOrOptimizeFile(s, path.join(dest, servedName(entry.name)));
       }
     }
   }
@@ -122,7 +145,7 @@ async function main() {
   await syncCertificates();
   syncResume();
   console.log(
-    `[sync] done in ${((Date.now() - t0) / 1000).toFixed(1)}s (optimize=${OPTIMIZE ? "on" : "off"})`,
+    `[sync] done in ${((Date.now() - t0) / 1000).toFixed(1)}s (webp q${WEBP_QUALITY}, resize=${RESIZE ? `${MAX_WIDTH}px` : "off"})`,
   );
 }
 

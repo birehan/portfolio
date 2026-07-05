@@ -21,20 +21,21 @@
 
 ## Selected work
 
-- The COOL Company (AI/ML Engineer): AI floor-price prediction system (LightGBM) delivering a 7% revenue increase for DSPs.
-- Adludio (Machine Learning Engineer): automated pacing (~16% KPI lift) and an LLM pipeline that cut creative ideation time roughly in half.
-- Eskalate (AI Software Engineer, Team Lead): led a team of 18 to launch HakimHub, an AI-powered medical recommendation platform with a fine-tuned Llama 3 chatbot.
-- Al-Shalawi: bilingual Arabic/English legal platform with an RTL UI and a RAG drafting assistant, shipped end-to-end.
+- [The COOL Company](https://birehan.me/work/) (AI/ML Engineer): AI floor-price prediction system (LightGBM) delivering a 7% revenue increase for DSPs.
+- [Adludio](https://birehan.me/work/) (Machine Learning Engineer): automated pacing (~16% KPI lift) and an LLM pipeline that cut creative ideation time roughly in half.
+- [Eskalate](https://birehan.me/work/) (AI Software Engineer, Team Lead): led a team of 18 to launch HakimHub, an AI-powered medical recommendation platform with a fine-tuned Llama 3 chatbot.
+- [Al-Shalawi](https://birehan.me/work/bilingual-ai-legal-platform/): bilingual Arabic/English legal platform with an RTL UI and a RAG drafting assistant, shipped end-to-end.
 
 ## Links
 
-- Portfolio: https://birehan.me
-- About: https://birehan.me/about/
-- Resume: https://birehan.me/resume/
-- GitHub: https://github.com/birehan
-- LinkedIn: https://linkedin.com/in/birehan
-- Writing (Medium): https://medium.com/@birehanzewdie4
+- [Portfolio](https://birehan.me): home page and full project list.
+- [About](https://birehan.me/about/): full bio, role, and background.
+- [Resume](https://birehan.me/resume/): experience, skills, education, and awards.
+- [Writing](https://birehan.me/writing/): articles on RAG, LLMs, and production AI.
+- [GitHub](https://github.com/birehan): open-source code and projects.
+- [LinkedIn](https://linkedin.com/in/birehan): professional profile.
+- [Medium](https://medium.com/@birehanzewdie4): long-form technical writing.
 
 ## Contact
 
-- Email: birehananteneh4@gmail.com
+- [Email](mailto:birehananteneh4@gmail.com): birehananteneh4@gmail.com

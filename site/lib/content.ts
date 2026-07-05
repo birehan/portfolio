@@ -54,8 +54,13 @@ export type Certificate = {
 
 const PUBLIC_CONTENT_BASE = "/content";
 
+/** Map a source image filename to its served filename (raster -> .webp). */
+function toServed(file: string): string {
+  return file.replace(/\.(png|jpe?g)$/i, ".webp");
+}
+
 function publicPath(kind: ProjectKind | "certificates", folderName: string, file: string) {
-  return `${PUBLIC_CONTENT_BASE}/${kind}/${folderName}/${file}`;
+  return `${PUBLIC_CONTENT_BASE}/${kind}/${folderName}/${toServed(file)}`;
 }
 
 function listImages(dir: string): string[] {
@@ -240,9 +245,9 @@ function readCertificateFromFolder(
 
   const toPublic = (file: string) => {
     if (useImagesSubdir) {
-      return `/content/certificates/${subPath}/images/${file}`;
+      return `/content/certificates/${subPath}/images/${toServed(file)}`;
     }
-    return `/content/certificates/${subPath}/${file}`;
+    return `/content/certificates/${subPath}/${toServed(file)}`;
   };
 
   return {
@@ -300,7 +305,7 @@ export function getAllCertificates(): Certificate[] {
           title: friendly,
           category: cat.id,
           categoryLabel: cat.label,
-          image: `/content/certificates/competitive_programming/${encodeURIComponent(file)}`,
+          image: `/content/certificates/competitive_programming/${encodeURIComponent(toServed(file))}`,
           extraImages: [],
           links: [],
         });
@@ -318,7 +323,7 @@ export function getAllCertificates(): Certificate[] {
           category: cat.id,
           categoryLabel: cat.label,
           issuer: "Udemy",
-          image: `/content/certificates/udemy/${encodeURIComponent(file)}`,
+          image: `/content/certificates/udemy/${encodeURIComponent(toServed(file))}`,
           extraImages: [],
           links: [],
         });
@@ -345,10 +350,10 @@ export function getAllCertificates(): Certificate[] {
           date: "June 2024",
           description:
             "6-month intensive training. Less than 4% of applicants completed this program. Cohort A Valedictorian.",
-          image: `/content/certificates/10_academy/images/${main}`,
+          image: `/content/certificates/10_academy/images/${toServed(main)}`,
           extraImages: [detail, valedictorian]
-            .filter(Boolean)
-            .map((f) => `/content/certificates/10_academy/images/${f}`),
+            .filter((f): f is string => Boolean(f))
+            .map((f) => `/content/certificates/10_academy/images/${toServed(f)}`),
           links: [],
         });
       }
@@ -369,7 +374,7 @@ export function getAllCertificates(): Certificate[] {
           categoryLabel: cat.label,
           issuer: sub.toLowerCase().includes("large language") ? "Google Cloud" : "IBM",
           description: extractFirstParagraph(content),
-          image: cover ? `/content/certificates/coursera/${encodeURIComponent(sub)}/${cover}` : null,
+          image: cover ? `/content/certificates/coursera/${encodeURIComponent(sub)}/${toServed(cover)}` : null,
           extraImages: [],
           links: extractLinksAsList(content),
         });

@@ -32,7 +32,7 @@ jobs:
         run: npm run lint
 
       - name: Build
-        run: SKIP_IMAGE_OPT=1 npm run build
+        run: npm run build
 
       - name: Upload static site
         if: github.ref == 'refs/heads/main'
