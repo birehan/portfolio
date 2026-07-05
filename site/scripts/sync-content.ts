@@ -12,8 +12,8 @@ const PUBLIC_DIR = path.join(SITE_DIR, "public");
 // dev/build runs skip re-encoding unchanged images.
 const CACHE_DIR = path.join(SITE_DIR, "node_modules", ".cache", "content-images");
 
-const MAX_WIDTH = 1280;
-const WEBP_QUALITY = 76;
+const MAX_WIDTH = 1100;
+const WEBP_QUALITY = 74;
 // Raster sources we convert to WebP; SKIP_IMAGE_OPT=1 keeps WebP output but
 // skips the downscale (kept for a fast local escape hatch).
 const RESIZE = process.env.SKIP_IMAGE_OPT !== "1";

@@ -31,8 +31,8 @@ export function FeaturedWork({ projects }: { projects: Project[] }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((p, i) => (
-            <ProjectCard key={p.slug} project={p} priority={i === 0} />
+          {projects.map((p) => (
+            <ProjectCard key={p.slug} project={p} />
           ))}
         </div>
       </div>
