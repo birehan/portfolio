@@ -105,7 +105,7 @@ export const ending = {
 
 /** Background music. `videoId` is the YouTube video id to play/embed. */
 export const music = {
-  videoId: "WjB3vNONHUM",
+  videoId: "2w_k3o-OXMk",
   title: "Our song",
 } as const;
 
