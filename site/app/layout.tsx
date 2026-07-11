@@ -3,8 +3,7 @@ import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Nav } from "@/components/nav";
-import { Footer } from "@/components/footer";
+import { SiteChrome } from "@/components/site-chrome";
 import { site, getWhatsAppHref, canonical } from "@/lib/site";
 
 const inter = Inter({
@@ -255,9 +254,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           themes={["dark", "light"]}
           disableTransitionOnChange
         >
-          <Nav />
-          <main>{children}</main>
-          <Footer />
+          <SiteChrome>{children}</SiteChrome>
         </ThemeProvider>
       </body>
     </html>
