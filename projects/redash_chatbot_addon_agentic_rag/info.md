@@ -1,5 +1,5 @@
 ---
-title: "Redash Chatbot Add-on — Agentic RAG for Data Analysis"
+title: "Redash Chatbot Add-on: Agentic RAG for Data Analysis"
 slug: redash-chatbot-agentic-rag
 role: AI Engineer (personal project)
 summary: "Conversational chatbot add-on for Redash that translates natural-language questions into SQL/queries against existing dashboards using an agentic RAG approach."
@@ -17,7 +17,7 @@ order: 2
 date: 2024
 ---
 
-# Redash Chatbot Add-on — Agentic RAG for Data Analysis
+# Redash Chatbot Add-on: Agentic RAG for Data Analysis
 
 **Ask your dashboards questions in plain English.** An add-on for Redash that turns natural-language questions into SQL against existing data sources, so non-analysts get answers without writing queries.
 

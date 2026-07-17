@@ -18,7 +18,7 @@ import { gallery, poem } from "../../content";
 
 /**
  * A flowing white ribbon built from a smooth (closed) Catmull-Rom curve swept
- * into a TubeGeometry — the parametric, sculptural language of Zaha Hadid,
+ * into a TubeGeometry: the parametric, sculptural language of Zaha Hadid,
  * here looping *around* the viewer.
  */
 function Ribbon({

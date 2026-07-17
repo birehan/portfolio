@@ -15,8 +15,8 @@ export function SideProjects({ projects }: { projects: Project[] }) {
             ML experiments and <span className="text-[var(--accent)]">open-source research</span>
           </h2>
           <p className="lead mt-4">
-            Where I explore LLM fine-tuning, RAG architectures, and ML pipelines.
-            Most include a Medium write-up and GitHub source.
+            LLM fine-tuning, RAG architectures, and ML pipelines. Most include a
+            Medium write-up and GitHub source.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

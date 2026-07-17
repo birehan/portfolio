@@ -2,7 +2,7 @@
 title: "Automated Storyboard Synthesis for Digital Advertising"
 slug: automated-storyboard-synthesis
 role: ML Engineer (10 Academy project)
-summary: "ML solution that automated storyboard creation for digital ads — combining EDA on creative assets, YOLO object detection, and image generation."
+summary: "ML solution that automated storyboard creation for digital ads by combining EDA on creative assets, YOLO object detection, and image generation."
 outcome: "Cut storyboard production time from a week to a few hours, enabling faster delivery in a competitive market."
 stack:
   - Python
@@ -23,7 +23,7 @@ date: "Feb 2024"
 
 ## The problem
 
-Agencies build storyboards by hand for every campaign concept — slow, repetitive, and a bottleneck in a market where turnaround speed wins pitches.
+Agencies build storyboards by hand for every campaign concept: slow, repetitive, and a bottleneck in a market where turnaround speed wins pitches.
 
 ## What I built
 

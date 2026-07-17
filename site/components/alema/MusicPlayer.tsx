@@ -89,7 +89,7 @@ export function MusicPlayer({ active }: MusicPlayerProps) {
         events: {
           onReady: (e: { target: YTPlayer }) => {
             setReady(true);
-            // Try to start playing (best effort — may be blocked when unmuted).
+            // Try to start playing (best effort, may be blocked when unmuted).
             e.target.playVideo();
             setMuted(e.target.isMuted());
             // If nothing is playing shortly after, ask for a tap.

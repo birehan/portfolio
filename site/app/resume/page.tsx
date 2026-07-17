@@ -12,7 +12,7 @@ import {
 } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Resume — Full-Stack AI Engineer (LLMs, RAG, FastAPI, Next.js)",
+  title: "Resume: Full-Stack AI Engineer (LLMs, RAG, FastAPI, Next.js)",
   description: `Resume of ${site.name}, ${site.role} with 4+ years of software / AI engineering: LLM and RAG products, AI agents, FastAPI/Python backends, Next.js/React frontends, and cloud deployment. Experience, education, skills, and awards.`,
   alternates: { canonical: canonical("/resume") },
 };

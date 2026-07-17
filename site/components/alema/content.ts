@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- *  ALEMA — EDIT EVERYTHING HERE
+ *  ALEMA: EDIT EVERYTHING HERE
  * ============================================================================
  *  This is the single place to change the words and pictures of the whole
  *  experience. You do NOT need to touch any other file.
@@ -16,7 +16,7 @@
 
 /**
  * SHA-256 hash of the unlock password. The plaintext password is never written
- * in the source — only this hash — and the entered value is hashed in-browser
+ * in the source (only this hash) and the entered value is hashed in-browser
  * and compared. (On a fully static site nothing client-side is truly secret,
  * but this keeps the password out of the readable source / bundle strings.)
  */
@@ -31,7 +31,7 @@ export const gate = {
     "Enter the password to unlock what my heart has been waiting to tell you.",
   placeholder: "Our secret",
   button: "Unlock",
-  // Shown when the password is wrong — kept sweet, never like an error.
+  // Shown when the password is wrong, kept sweet, never like an error.
   wrongMessage: "Not quite, my love \u2764\ufe0f",
   hint: "Think about the blessed day the world received the most beautiful soul\u2026 the day you came into this world.",
 } as const;
@@ -41,7 +41,7 @@ export const hero = {
   eyebrow: "Welcome home, my architect",
   name: "Alema",
   // A short line under her name.
-  tagline: "You design beautiful spaces \u2014 so I built one for your heart.",
+  tagline: "You design beautiful spaces, so I built one for your heart.",
   scrollCue: "Scroll, my love",
 } as const;
 
@@ -54,10 +54,10 @@ export const loveLetter = {
   title: "A Letter For You",
   paragraphs: [
     "My dearest Alema, every place I have ever loved was only a rough sketch until I met you. You are the light that makes every room feel like home, the proportion that makes everything else make sense.",
-    "You see the world the way an architect does \u2014 in lines, in light, in the quiet spaces between things. And somehow, in all your blueprints and dreams, you made room for me. I will spend my life being grateful for that.",
+    "You see the world the way an architect does, in lines, in light, in the quiet spaces between things. And somehow, in all your blueprints and dreams, you made room for me. I will spend my life being grateful for that.",
     "This little world is my way of saying what I sometimes struggle to say out loud: that you are my favorite masterpiece, my calm and my wonder, the structure that holds up all my happiness.",
   ],
-  signature: "Forever yours \u2014 with all my heart",
+  signature: "Forever yours, with all my heart",
 } as const;
 
 /** A short line that floats mid-journey, among her scattered portraits. */
@@ -99,7 +99,7 @@ export const ending = {
   eyebrow: "One last thing",
   title: "I love you, Alema",
   message:
-    "Thank you for being the most beautiful soul the world has ever received. Every day with you is a place I never want to leave. Happy day of you \u2014 today, and always.",
+    "Thank you for being the most beautiful soul the world has ever received. Every day with you is a place I never want to leave. Happy day of you, today, and always.",
   signature: "\u2764\ufe0f",
 } as const;
 

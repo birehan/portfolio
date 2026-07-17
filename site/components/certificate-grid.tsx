@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge";
 
 function certAlt(c: Certificate): string {
   const issuer = c.issuer ? ` from ${c.issuer}` : "";
-  return `${c.title}${issuer} — ${c.categoryLabel} certificate awarded to Birehan Zewdie`;
+  return `${c.title}${issuer}, ${c.categoryLabel} certificate awarded to Birehan Zewdie`;
 }
 
 export function CertificateGrid({ certificates }: { certificates: Certificate[] }) {

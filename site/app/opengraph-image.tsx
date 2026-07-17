@@ -113,7 +113,7 @@ export default async function OG() {
               display: "flex",
             }}
           >
-            Shipping AI products end-to-end — frontend, backend, and the models.
+            Shipping AI products end-to-end: frontend, backend, and the models.
           </div>
         </div>
         <div

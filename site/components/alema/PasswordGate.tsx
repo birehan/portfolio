@@ -13,7 +13,7 @@ type PasswordGateProps = {
 };
 
 /**
- * The romantic password screen — the very first thing she sees. Validates the
+ * The romantic password screen, the very first thing she sees. Validates the
  * entered password by hashing it in-browser and comparing to the stored hash,
  * so the plaintext password never appears in the source.
  */

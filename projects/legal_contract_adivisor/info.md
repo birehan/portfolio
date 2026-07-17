@@ -1,5 +1,5 @@
 ---
-title: "Legal Contract Advisor — High-Precision RAG for Legal Q&A"
+title: "Legal Contract Advisor: High-Precision RAG for Legal Q&A"
 slug: legal-contract-advisor
 role: AI Engineer (Lizzy AI capstone)
 summary: "Contract Q&A RAG system for Lizzy AI built to deliver high-precision answers on legal documents using semantic chunking, hybrid retrieval, and a fully evaluated RAG pipeline."
@@ -19,9 +19,9 @@ order: 1
 date: "Feb 2024"
 ---
 
-# Legal Contract Advisor — High-Precision RAG for Legal Q&A
+# Legal Contract Advisor: High-Precision RAG for Legal Q&A
 
-**87% relevance on contract analysis** — a RAG system for Lizzy AI that answers questions about legal contracts with precision high enough to trust inside a legal workflow.
+**87% relevance on contract analysis:** a RAG system for Lizzy AI that answers questions about legal contracts with precision high enough to trust inside a legal workflow.
 
 ## The problem
 
@@ -36,7 +36,7 @@ Generic RAG over legal contracts returns plausible-but-wrong answers: naive chun
 
 ## How I measured quality
 
-I built a labelled question/answer set over sample contracts and tracked answer relevance as I changed chunking and retrieval. Changes were kept only when the eval score moved, not on subjective spot-checks — that iteration is how relevance reached 87%. The Medium write-up walks through each enhancement.
+I built a labelled question/answer set over sample contracts and tracked answer relevance as I changed chunking and retrieval. Changes were kept only when the eval score moved, not on subjective spot-checks, and that iteration is how relevance reached 87%. The Medium write-up walks through each enhancement.
 
 ## Stack
 

@@ -16,9 +16,8 @@ export function FeaturedWork({ projects }: { projects: Project[] }) {
               Production systems that <span className="text-[var(--accent)]">shipped</span>
             </h2>
             <p className="lead mt-4">
-              End-to-end AI products, owned from the Next.js frontend and FastAPI
-              backend through RAG, agents, and cloud deploy — shipped and running for
-              real users.
+              End-to-end AI products, owned from frontend and backend through RAG,
+              agents, and cloud deploy. Shipped and running for real users.
             </p>
           </div>
           <Link

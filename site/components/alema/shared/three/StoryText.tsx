@@ -71,7 +71,7 @@ export function StoryText({ theme, chapter }: StoryTextProps) {
   return (
     // Isolate font loading: drei's <Text> suspends until troika finishes
     // parsing the font. Its own boundary means a slow/failed font can never
-    // blank the surrounding world — only the text waits.
+    // blank the surrounding world; only the text waits.
     <Suspense fallback={null}>
       <group ref={group} position={anchor.position} rotation={[0, yaw, 0]}>
         {lines.map((l) => (

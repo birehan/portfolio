@@ -212,7 +212,7 @@ const websiteJsonLd = {
   "@type": "WebSite",
   "@id": `${site.url}/#website`,
   url: site.url,
-  name: `${site.name} — ${site.role}`,
+  name: `${site.name}, ${site.role}`,
   description: site.tagline,
   inLanguage: "en",
   publisher: { "@id": personId },

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { site, canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Writing — RAG, LLMs, Fine-tuning & Production AI",
+  title: "Writing: RAG, LLMs, Fine-tuning & Production AI",
   description: `Articles and engineering notes by ${site.name} on RAG and agentic RAG, LLM fine-tuning, evaluation, and shipping production AI systems with FastAPI and Next.js.`,
   alternates: { canonical: canonical("/writing") },
 };
@@ -36,8 +36,8 @@ export default function WritingPage() {
           Notes on shipping <span className="text-[var(--accent)]">production AI</span>
         </h1>
         <p className="lead text-lg">
-          Longer-form writing about RAG, fine-tuning, LLM architecture, and the
-          operational work that keeps AI systems running in production.
+          Writing about RAG, fine-tuning, LLM architecture, and the operational
+          work that keeps AI systems running in production.
         </p>
       </header>
 

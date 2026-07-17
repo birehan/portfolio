@@ -46,7 +46,7 @@ export type ScatterOptions = {
 /**
  * Scatter portraits in a full 360° ring/cloud *around* the origin, each turned
  * to face the centre. The camera sits inside this ring, so her photos surround
- * the viewer in every direction — the enveloping, "you are inside it" feeling.
+ * the viewer in every direction, the enveloping, "you are inside it" feeling.
  */
 export function scatterRing({
   count,

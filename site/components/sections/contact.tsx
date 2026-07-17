@@ -25,8 +25,8 @@ export function Contact() {
             Hiring or have a project? <span className="text-[var(--accent)]">Let&apos;s talk.</span>
           </h2>
           <p className="lead mx-auto mt-4 mb-8">
-            Email or WhatsApp both work. I aim to reply within a business day on email;
-            WhatsApp is fine for a quick ping or time-sensitive threads.
+            Email or WhatsApp both work. I reply within a business day; WhatsApp is
+            fine for a quick ping.
           </p>
 
           <Badge variant="accent" className="mb-8 px-4 py-2 text-sm">

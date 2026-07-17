@@ -6,7 +6,7 @@ import { CertificateGrid } from "@/components/certificate-grid";
 import { canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Certificates & Awards — ML, LLMs, Competitive Programming",
+  title: "Certificates & Awards: ML, LLMs, Competitive Programming",
   description:
     "Machine learning, LLM, and data-engineering certificates plus competitive-programming awards: 10 Academy (Distinction, Cohort A Valedictorian), A2SV, EtCPC, Coursera (IBM, Google Cloud), and Udemy.",
   alternates: { canonical: canonical("/certificates") },

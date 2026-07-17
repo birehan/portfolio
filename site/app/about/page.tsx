@@ -17,11 +17,11 @@ import { AboutBio } from "@/components/sections/about";
 import { site, canonical } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Birehan Zewdie — Full-Stack AI Engineer",
+  title: "About Birehan Zewdie: Full-Stack AI Engineer",
   description: `About ${site.name}, a ${site.role} in ${site.location.city}, ${site.location.country}, with 4+ years of software / AI engineering: LLM and RAG products, AI agents, FastAPI/Python backends, and Next.js/React frontends shipped end-to-end.`,
   alternates: { canonical: canonical("/about") },
   openGraph: {
-    title: "About Birehan Zewdie — Full-Stack AI Engineer",
+    title: "About Birehan Zewdie: Full-Stack AI Engineer",
     description: `${site.role} in ${site.location.city}, ${site.location.country}. LLMs, RAG, AI agents, FastAPI, and Next.js, shipped end-to-end.`,
     url: canonical("/about"),
     type: "profile",

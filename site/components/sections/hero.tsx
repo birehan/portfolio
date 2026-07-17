@@ -18,7 +18,7 @@ export function Hero() {
       <div className="container-x pt-24 pb-10 md:pt-32 md:pb-12">
         <Image
           src={site.image}
-          alt={`${site.name} — ${site.role}`}
+          alt={`${site.name}, ${site.role}`}
           width={72}
           height={72}
           priority
@@ -35,16 +35,15 @@ export function Hero() {
         )}
 
         <h1 className="h1-hero mb-6">
-          {site.name} — <span className="text-[var(--accent)]">{site.role}</span>
+          {site.name}, <span className="text-[var(--accent)]">{site.role}</span>
           <br />
           shipping AI products end-to-end.
         </h1>
 
         <p className="lead mb-6 max-w-2xl">
-          {site.tagline} I own the whole stack — Next.js frontends, async FastAPI
-          backends, RAG and LLM agents — and I have shipped it: a 7% revenue lift
-          from an AI floor-price model at The COOL Company and full production
-          products like a bilingual RAG legal platform.
+          {site.tagline} Recent wins: a 7% revenue lift from an AI floor-price
+          model at The COOL Company, and a bilingual RAG legal platform live in
+          production.
         </p>
 
         <p className="mb-8 max-w-2xl text-sm text-[var(--muted)]">

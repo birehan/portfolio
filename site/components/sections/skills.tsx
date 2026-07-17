@@ -13,8 +13,8 @@ export function Skills() {
             What I work with <span className="text-[var(--accent)]">every day</span>
           </h2>
           <p className="lead mt-4">
-            The tools I reach for first, organized by where they live in the stack.
-            Primary stack is highlighted; everything here has shipped to production.
+            The tools I reach for first, by layer. Primary stack is highlighted, and
+            everything here has shipped to production.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

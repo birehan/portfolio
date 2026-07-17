@@ -3,7 +3,7 @@
  * real font file (not a `next/font` CSS variable), so these OFL fonts are
  * bundled under `public/fonts/` and served from the site root.
  *
- * IMPORTANT: troika-three-text parses TTF/OTF and WOFF (v1) only — it does NOT
+ * IMPORTANT: troika-three-text parses TTF/OTF and WOFF (v1) only; it does NOT
  * support WOFF2 (Brotli). Feeding it a .woff2 makes `preloadFont` never resolve,
  * which suspends drei's <Text> forever and blanks the whole canvas. Keep these
  * as .woff (v1) / .ttf.

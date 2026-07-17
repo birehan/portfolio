@@ -3,9 +3,9 @@ export const site = {
   initials: "BZ",
   role: "Full-Stack AI Engineer",
   tagline:
-    "I build and ship production AI products end-to-end: RAG and LLM agents on async FastAPI backends, Next.js frontends, and the cloud infra behind them.",
+    "I build and ship production AI products end-to-end: RAG and LLM agents, FastAPI backends, and Next.js frontends.",
   longDescription:
-    "Full-Stack AI Engineer shipping production LLM and ML products end-to-end, from Next.js frontends and async FastAPI backends to retrieval pipelines, agent workflows, and the cloud infrastructure that keeps them running.",
+    "Full-Stack AI Engineer with 4+ years shipping production LLM and ML products, from frontend to backend to the cloud infra that keeps them running.",
   email: "birehananteneh4@gmail.com",
   /** E.164; used for display and wa.me links */
   whatsapp: "+251982070195",

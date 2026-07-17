@@ -19,7 +19,7 @@ date: 2024
 
 # Fine-tuning Llama 2 for Amharic Text Generation
 
-**A Hugging Face-hosted Llama 2 fine-tune for Amharic**, plus a RAG pipeline that uses it to generate ad copy for the Ethiopian market — bringing a low-resource language into a usable generative workflow.
+**A Hugging Face-hosted Llama 2 fine-tune for Amharic**, plus a RAG pipeline that uses it to generate ad copy for the Ethiopian market, bringing a low-resource language into a usable generative workflow.
 
 ## The problem
 

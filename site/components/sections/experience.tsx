@@ -12,8 +12,8 @@ export function Experience() {
             Where I&apos;ve <span className="text-[var(--accent)]">shipped impact</span>
           </h2>
           <p className="lead mt-4">
-            Production ML and full-stack delivery in programmatic ad-tech, team-led health AI,
-            and advertiser tooling, spanning modeling, LLM pipelines, and React dashboards.
+            Production ML and full-stack delivery across ad-tech, health AI, and advertiser
+            tooling: modeling, LLM pipelines, and React dashboards.
           </p>
         </div>
 

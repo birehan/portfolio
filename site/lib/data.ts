@@ -30,8 +30,8 @@ export const experience: Experience[] = [
       "Model Deployment",
     ],
     bullets: [
-      "7% revenue increase from a data-driven AI floor-price prediction system (LightGBM) that dynamically optimizes pricing per ad request for DSPs.",
-      "86%+ prediction accuracy on a client revenue-forecasting system built from scraped domain data, Google PageSpeed metrics, WHOIS data, historical performance, and LLM-generated features.",
+      "7% revenue increase from an AI floor-price prediction system (LightGBM) that optimizes pricing per ad request for DSPs.",
+      "86%+ accuracy on a client revenue-forecasting system built from scraped domain data, PageSpeed and WHOIS signals, historical performance, and LLM-generated features.",
     ],
   },
   {
@@ -43,9 +43,9 @@ export const experience: Experience[] = [
     track: "full-time",
     stack: ["Python", "PyTorch", "DCN v2", "LTR", "LLMs"],
     bullets: [
-      "~16% KPI lift from an automated pacing algorithm that pairs predictive modeling with real-time bid adjustments to balance campaign spend.",
-      "~10% engagement lift and ~5% CTR/CPA improvement from a creative scoring system (historical performance + LLMs) that ranks creative variants before spend.",
-      "Cut creative ideation time roughly in half with an LLM pipeline that generates on-brand ad concepts aligned to campaign goals.",
+      "~16% KPI lift from an automated pacing algorithm that pairs predictive modeling with real-time bid adjustments.",
+      "~10% engagement lift and ~5% CTR/CPA improvement from a creative scoring system (historical performance + LLMs) that ranks variants before spend.",
+      "Cut creative ideation time roughly in half with an LLM pipeline that generates on-brand ad concepts.",
       "~15% conversion lift and ~10% margin lift from an inventory scoring model (DCN v2 + learning-to-rank) that tunes bids across publishers, formats, and devices.",
     ],
   },
@@ -58,7 +58,7 @@ export const experience: Experience[] = [
     track: "full-time",
     stack: ["Llama 3", "AI Agents", "Python", "Next.js"],
     bullets: [
-      "Led a cross-functional team of 18 to launch HakimHub, a first-of-its-kind AI-powered medical recommendation platform, using Jira for structured planning, task tracking, and coordination through delivery.",
+      "Led a cross-functional team of 18 to launch HakimHub, a first-of-its-kind AI-powered medical recommendation platform, coordinating planning and delivery through Jira.",
       "Fine-tuned a Llama 3-based chatbot using AI agents for personalized symptom assessments and follow-ups, integrated with tooling to query doctors and hospitals.",
     ],
   },

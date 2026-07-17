@@ -15,7 +15,7 @@ function projectLastModified(date: unknown, fallback: Date): Date {
     return Number.isNaN(date.getTime()) ? fallback : toUtcDay(date);
   }
   if (date === undefined || date === null || date === "") return fallback;
-  // Bare year (e.g. 2024 as a number or "2024") — otherwise `new Date(2024)`
+  // Bare year (e.g. 2024 as a number or "2024"); otherwise `new Date(2024)`
   // is interpreted as milliseconds since the epoch and resolves to 1970.
   const raw = String(date).trim();
   if (/^\d{4}$/.test(raw)) {
